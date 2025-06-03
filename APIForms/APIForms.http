@@ -1,0 +1,6 @@
+@APIForms_HostAddress = http://localhost:5167
+
+GET {{APIForms_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
