@@ -51,10 +51,10 @@ namespace Infrastructure.Data.Migrations
                     name = table.Column<string>(type: "text", nullable: false),
                     description = table.Column<string>(type: "text", nullable: false),
                     instruction = table.Column<string>(type: "text", nullable: true),
-                    created_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValueSql: "now()"),
-                    updated_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValueSql: "now()"),
                     componentreact = table.Column<string>(type: "character varying(20)", maxLength: 20, nullable: true),
-                    componenthtml = table.Column<string>(type: "character varying(20)", maxLength: 20, nullable: true)
+                    componenthtml = table.Column<string>(type: "character varying(20)", maxLength: 20, nullable: true),
+                    created_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValueSql: "now()"),
+                    updated_at = table.Column<DateTime>(type: "timestamp with time zone", nullable: false, defaultValueSql: "now()")
                 },
                 constraints: table =>
                 {
@@ -172,7 +172,9 @@ namespace Infrastructure.Data.Migrations
                     id_survey = table.Column<int>(type: "integer", nullable: false),
                     code_number = table.Column<string>(type: "character varying(20)", maxLength: 20, nullable: true),
                     id_question = table.Column<int>(type: "integer", nullable: false),
-                    valor_t = table.Column<string>(type: "text", nullable: true)
+                    valor_t = table.Column<string>(type: "text", nullable: true),
+                    CreatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    UpdatedAt = table.Column<DateTime>(type: "timestamp with time zone", nullable: false)
                 },
                 constraints: table =>
                 {

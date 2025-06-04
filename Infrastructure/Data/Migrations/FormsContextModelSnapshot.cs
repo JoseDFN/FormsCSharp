@@ -344,6 +344,9 @@ namespace Infrastructure.Data.Migrations
                         .HasColumnType("character varying(20)")
                         .HasColumnName("code_number");
 
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("timestamp with time zone");
+
                     b.Property<int>("IdQuestion")
                         .HasColumnType("integer")
                         .HasColumnName("id_question");
@@ -351,6 +354,9 @@ namespace Infrastructure.Data.Migrations
                     b.Property<int>("SurveyId")
                         .HasColumnType("integer")
                         .HasColumnName("id_survey");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("ValorT")
                         .HasColumnType("text")

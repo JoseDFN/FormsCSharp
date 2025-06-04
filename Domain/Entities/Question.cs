@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    public class Question
+    public class Question : BaseEntity
     {
         public int Id { get; set; }
         public int ChapterId { get; set; }
@@ -13,8 +13,6 @@ namespace Domain.Entities
         public string? ResponseType { get; set; }
         public string? QuestionText { get; set; }
         public string? CommentQuestion { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public DateTime UpdatedAt { get; set; }
 
         // Navigation
         public Chapter? Chapter { get; set; }

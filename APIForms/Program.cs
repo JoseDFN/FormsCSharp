@@ -1,3 +1,4 @@
+using APIForms.Extensions;
 using Infrastructure;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
@@ -5,8 +6,8 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
+builder.Services.ConfigureCors();
+builder.Services.AddAplicacionServices();
 
 builder.Services.AddDbContext<FormsContext>(options =>
 {
@@ -22,6 +23,8 @@ if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
 }
+
+app.UseCors("CorsPolicy");
 
 app.UseHttpsRedirection();
 
