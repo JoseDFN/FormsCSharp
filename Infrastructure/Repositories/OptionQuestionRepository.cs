@@ -7,14 +7,13 @@ using Application.Interfaces;
 using Domain.Entities;
 using Infrastructure.Data;
 
-
 namespace Infrastructure.Repositories
 {
-    public class CategoryCatalogRepository : GenericRepository<CategoryCatalog>, ICategoryCatalogRepository
+    public class OptionQuestionRepository : GenericRepository<OptionQuestion>, IOptionQuestionRepository
     {
         private readonly FormsContext _context;
 
-        public CategoryCatalogRepository(FormsContext context) : base(context)
+        public OptionQuestionRepository(FormsContext context) : base(context)
         {
             _context = context;
             

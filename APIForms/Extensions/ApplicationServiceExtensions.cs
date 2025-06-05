@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Application.Interfaces;
 using Infrastructure.Repositories;
+using Infrastructure.UnitOfWork;
 
 namespace APIForms.Extensions
 {
@@ -19,7 +20,8 @@ namespace APIForms.Extensions
             });
         public static void AddAplicacionServices(this IServiceCollection services)
         {
-            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            // services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
     }
 }
