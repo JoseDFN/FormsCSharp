@@ -1,3 +1,4 @@
+using System.Reflection;
 using APIForms.Extensions;
 using Application.Interfaces;
 using Infrastructure;
@@ -7,6 +8,8 @@ using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddAutoMapper(Assembly.GetEntryAssembly());
 
 // Add services to the container.
 builder.Services.ConfigureCors();
