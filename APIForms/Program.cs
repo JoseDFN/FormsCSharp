@@ -11,11 +11,13 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddAutoMapper(Assembly.GetEntryAssembly());
 
-// Add services to the container.
+// Add or inject services to the container.
 builder.Services.ConfigureCors();
 builder.Services.AddControllers();
 
 builder.Services.AddAplicacionServices();
+
+builder.Services.AddCustomRateLimiter();
 
 builder.Services.AddDbContext<FormsContext>(options =>
 {
@@ -34,9 +36,10 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
+// use services injected
 app.UseCors("CorsPolicy");
-
 app.UseHttpsRedirection();
+app.UseRateLimiter();
 
 app.Run();
 
