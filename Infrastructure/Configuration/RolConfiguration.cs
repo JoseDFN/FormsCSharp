@@ -14,10 +14,9 @@ namespace Infrastructure.Configuration
         {
             // Aquí puedes configurar las propiedades de la entidad Marca
             // utilizando el objeto 'builder'.
-            builder.ToTable("rols");
+            builder.ToTable("roles");
             builder.HasKey(r => r.Id); // Establece la clave primaria
-            builder.Property(p => p.Id)
-                    .IsRequired();
+
             builder.Property(p => p.Name)
                     .IsRequired()
                     .HasMaxLength(80);

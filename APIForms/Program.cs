@@ -18,6 +18,8 @@ builder.Services.AddControllers();
 builder.Services.AddAplicacionServices();
 
 builder.Services.AddCustomRateLimiter();
+builder.Services.AddAuthentication();
+builder.Services.AddAuthorization();
 
 builder.Services.AddDbContext<FormsContext>(options =>
 {
@@ -40,7 +42,8 @@ if (app.Environment.IsDevelopment())
 app.UseCors("CorsPolicy");
 app.UseHttpsRedirection();
 app.UseRateLimiter();
-
+app.UseAuthentication();
+app.UseAuthorization();
 app.Run();
 
 record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)

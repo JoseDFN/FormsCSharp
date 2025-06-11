@@ -19,7 +19,7 @@ namespace Infrastructure.Repositories
         public async Task<Member> GetByUsernameAsync(string username)
         {
             return await _context.Members
-                            .Include(u => u.Roles)
+                            .Include(u => u.Rols)
                             .FirstOrDefaultAsync(u => u.Username.ToLower() == username.ToLower());
         }
     }
