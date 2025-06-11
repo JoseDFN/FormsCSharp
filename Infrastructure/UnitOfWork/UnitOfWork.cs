@@ -21,6 +21,8 @@ namespace Infrastructure.UnitOfWork
         private ISubQuestionRepository? _subQuestion;
         private ISummaryOptionRepository? _summaryOption;
         private ISurveyRepository? _survey;
+        private IMemberRepository? _member;
+        private IRolRepository? _rol;
 
         public UnitOfWork(FormsContext context)
         {
@@ -58,6 +60,28 @@ namespace Infrastructure.UnitOfWork
                     _chapter = new ChapterRepository(_context);
                 }
                 return _chapter;
+            }
+        }
+        public IMemberRepository Members
+        {
+            get
+            {
+                if (_member == null)
+                {
+                    _member = new MemberRepository(_context);
+                }
+                return _member;
+            }
+        }
+        public IRolRepository Roles
+        {
+            get
+            {
+                if (_rol == null)
+                {
+                    _rol = new RolRepository(_context);
+                }
+                return _rol;
             }
         }
         public IOptionQuestionRepository OptionQuestions
